@@ -4,10 +4,12 @@ import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
 
 import { Container } from "./styles";
-import { TransactionContext } from '../../TransactionsContext';
+import { TransactionsContext } from '../../TransactionsContext';
 
 export function Summary (){
-    const data = useContext(TransactionContext);
+    const {transactions} = useContext(TransactionsContext);
+
+    console.log(transactions)
 
     return(
         <Container>
