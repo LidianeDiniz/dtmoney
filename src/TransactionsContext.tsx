@@ -29,20 +29,20 @@ type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>
 
 //
 
-interface trasactionsProps{
+interface trasactionsProviderProps{
     children: ReactNode;
 }
 
 interface TransactionsContextData{
     transactions: Transaction[];
-    createTransaction: (transaction: Transaction) => void;
+    createTransaction: (transaction: TransactionInput) => void;
 }
 
 export const TransactionsContext = createContext<TransactionsContextData>(
     {} as TransactionsContextData
     );
 
-export function TransactionsProvider({children}: trasactionsProps) {
+export function TransactionsProvider({children}: trasactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
 
     useEffect(() => {
